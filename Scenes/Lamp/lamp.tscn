@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://iq6vuk4hmoyt"]
+
+[ext_resource type="Script" uid="uid://dlvtngbsasuu7" path="res://Scripts/lamp.gd" id="1_w33pa"]
+[ext_resource type="ArrayMesh" uid="uid://bxffmcr5sswux" path="res://Models/Environment/StreetLamp.obj" id="1_x8yd1"]
+[ext_resource type="Texture2D" uid="uid://di4f5xmetm37n" path="res://Models/Environment/lamp.png" id="2_w33pa"]
+[ext_resource type="PackedScene" uid="uid://ruf3svj4si23" path="res://Scenes/Lamp/lamp_text.tscn" id="4_ke22g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke22g"]
+albedo_texture = ExtResource("2_w33pa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lt1f"]
+size = Vector3(2.5425415, 17.723145, 3.3179321)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x8yd1"]
+radius = 4.1578727
+
+[node name="Lamp" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93873084, 0)
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_w33pa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("1_x8yd1")
+surface_material_override/0 = SubResource("StandardMaterial3D_ke22g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.021236658, 0.9681407, 0.010038376)
+shape = SubResource("BoxShape3D_3lt1f")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9137802, 0)
+shape = SubResource("SphereShape3D_x8yd1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3725095, 0)
+light_energy = 3.144
+
+[node name="LampText" parent="." instance=ExtResource("4_ke22g")]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ruf3svj4si23"]
+
+[node name="LampText" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_right = 80.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+text = "Press Z TO INTERACT"
