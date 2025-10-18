@@ -28,3 +28,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 		AudioPlayer.get_node("BGM").play()
 	else:
 		AudioPlayer.get_node("BGM").stop()
+		
+func _btn_sound():
+	if Global.can_play_sound:
+		pass
