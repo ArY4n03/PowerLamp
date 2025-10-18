@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.5
 
 var giant = true
-
+var can_change_size = true
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 func change_size():
 	var tween = get_tree().create_tween()
 	if not giant:
-		tween.tween_property(self,"scale",Vector3(0.5,0.5,0.5),1)
+		tween.tween_property(self,"scale",Vector3(1,1,1),1)
 		giant = true
 	else:
 		tween.tween_property(self,"scale",Vector3(0.2,0.2,0.2),1)

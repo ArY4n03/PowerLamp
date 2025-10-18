@@ -1,11 +1,10 @@
-[gd_scene load_steps=51 format=4 uid="uid://cu3f78x816hpf"]
+[gd_scene load_steps=52 format=4 uid="uid://cu3f78x816hpf"]
 
 [ext_resource type="Script" uid="uid://dx1yeexyjcrio" path="res://Scripts/zombie.gd" id="1_lqh64"]
 [ext_resource type="Texture2D" uid="uid://cna1dhtdw5s3n" path="res://Models/CharacterModels/Textures/texture-l.png" id="2_lqh64"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gi6q"]
 resource_name = "texture-l"
-shading_mode = 0
 albedo_texture = ExtResource("2_lqh64")
 texture_filter = 1
 
@@ -1881,6 +1880,9 @@ states/walk/node = SubResource("AnimationNodeAnimation_50pnb")
 states/walk/position = Vector2(555, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_yn7hu"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_m155m"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_6d0c2")]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_lqh64"]
+radius = 8.309395
+
 [node name="Zombie" type="CharacterBody3D"]
 collision_layer = 8
 collision_mask = 6
@@ -1938,3 +1940,12 @@ shape = SubResource("CapsuleShape3D_lqh64")
 root_node = NodePath("../ZombieModel")
 tree_root = SubResource("AnimationNodeStateMachine_yn7hu")
 anim_player = NodePath("../ZombieModel/AnimationPlayer")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.412036, 0)
+shape = SubResource("SphereShape3D_lqh64")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

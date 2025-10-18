@@ -1,8 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://2djnbcl65nm"]
+[gd_scene load_steps=10 format=3 uid="uid://2djnbcl65nm"]
 
-[ext_resource type="MeshLibrary" uid="uid://dtl2kx40f3v3s" path="res://MeshLibrary/meshlib.tres" id="1_4qtuw"]
 [ext_resource type="PackedScene" uid="uid://you4c42yiwar" path="res://Scenes/Player/player.tscn" id="2_w0r02"]
-[ext_resource type="MeshLibrary" uid="uid://cb836t8xqxe21" path="res://MeshLibrary/mesh.tres" id="3_61070"]
 [ext_resource type="PackedScene" uid="uid://cu3f78x816hpf" path="res://Scenes/Zombie/zombie.tscn" id="3_w0r02"]
 [ext_resource type="ArrayMesh" uid="uid://bxffmcr5sswux" path="res://Models/Environment/StreetLamp.obj" id="4_bjuqj"]
 [ext_resource type="Texture2D" uid="uid://di4f5xmetm37n" path="res://Models/Environment/lamp.png" id="5_imxp1"]
@@ -16,10 +14,12 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(4, 3, 2), PackedInt32Arr
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqjxc"]
 albedo_texture = ExtResource("5_imxp1")
 
+[sub_resource type="Environment" id="Environment_61070"]
+background_mode = 1
+
 [node name="World" type="Node3D"]
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_4qtuw")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 2
 data = {
@@ -40,7 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6531982, -0.3556974, 0.1305
 size = Vector3(26.535889, 0.9399414, 28.338013)
 
 [node name="GridMap2" type="GridMap" parent="NavigationRegion3D"]
-mesh_library = ExtResource("1_4qtuw")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 2
 collision_mask = 9
@@ -49,7 +48,6 @@ data = {
 }
 
 [node name="GridMap3" type="GridMap" parent="NavigationRegion3D"]
-mesh_library = ExtResource("3_61070")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 2
 collision_mask = 9
@@ -71,3 +69,6 @@ lamp_type = 1
 
 [node name="wall-a2" parent="." instance=ExtResource("7_sqjxc")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.3255038, 0.5, -2.2366943)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_61070")
