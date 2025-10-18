@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce73yeda1g0r1"]
+
+[ext_resource type="PackedScene" uid="uid://bx2e8i3talq0a" path="res://Models/Environment/wall-a-door.glb" id="1_4wwyv"]
+
+[node name="DoorModel" instance=ExtResource("1_4wwyv")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

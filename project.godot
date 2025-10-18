@@ -15,6 +15,10 @@ run/main_scene="uid://d0gnud04xmrf6"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Transition="*res://GlobalScenes/TransitionScene/Transition.tscn"
+
 [display]
 
 window/stretch/mode="viewport"

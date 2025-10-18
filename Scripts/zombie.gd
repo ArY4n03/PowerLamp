@@ -5,8 +5,12 @@ extends CharacterBody3D
 @export var speed = 2
 
 var active = false
+
 @warning_ignore("unused_parameter")
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		
 	if active:
 		velocity = Vector3.ZERO
 		nav_agent.set_target_position(player.global_transform.origin)
