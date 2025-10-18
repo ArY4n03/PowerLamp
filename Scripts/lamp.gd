@@ -1,11 +1,10 @@
 extends StaticBody3D
 
-enum type {size_manipulation,damaging,triggering,light}
+enum type {size_manipulation,damaging,light}
 
 @export var lamp_type:type
 @onready var player = find_parent("World").get_node("Player")
 
-signal trigger
 var is_active = false
 var can_damage_enemies = false
 # Called when the node enters the scene tree for the first time.
@@ -16,8 +15,6 @@ func _ready() -> void:
 			$OmniLight3D.light_color = Color(1.0, 0.8, 0.0, 0.667)
 		type.damaging:
 			$OmniLight3D.light_color = Color(0.73, 0.0, 0.0, 0.667)
-		type.triggering:
-			$OmniLight3D.light_color = Color(0.184, 0.8, 0.0, 0.667)
 		type.light:
 			$OmniLight3D.light_color = Color(0.013, 0.013, 0.0, 0.0)
 
@@ -47,8 +44,6 @@ func activate_lamp():
 				can_damage_enemies = true
 				$OmniLight3D.light_color = Color(1.612, 0.0, 0.0, 0.82)
 				$OmniLight3D.omni_range = 7.0
-		type.triggering:
-			emit_signal("trigger")
 		type.light:
 			$OmniLight3D.light_color = Color(0.912, 0.912, 0.01, 0.608)
 			$OmniLight3D.omni_range = 10.0

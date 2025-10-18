@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i5fww")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -23,7 +23,7 @@ offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "POWER LAMP"
+text = "POWER LAMPS"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

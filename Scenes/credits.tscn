@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcvt3eycef30c"]
+
+[ext_resource type="Script" uid="uid://bsb40bs6io5bw" path="res://Scripts/credits.gd" id="1_r18jl"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r18jl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 659.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.5
+offset_top = -85.5
+offset_right = 246.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Created By Aryan Soy
+3D models from kenny.nl
+Sound from zapsplat.com"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -52.0
+offset_right = -36.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "BACK"
+
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]

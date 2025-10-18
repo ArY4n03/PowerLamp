@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://lj7nu5s8jqrb"]
+[gd_scene load_steps=6 format=3 uid="uid://lj7nu5s8jqrb"]
 
+[ext_resource type="Script" uid="uid://jsufs3hipf06" path="res://Scripts/level.gd" id="1_sr83s"]
 [ext_resource type="PackedScene" uid="uid://you4c42yiwar" path="res://Scenes/Player/player.tscn" id="2_wdb1f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6k6w"]
@@ -19,6 +20,7 @@ ambient_light_energy = 0.01
 adjustment_enabled = true
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_sr83s")
 
 [node name="Player" parent="." instance=ExtResource("2_wdb1f")]
 
