@@ -19,10 +19,5 @@ func _on_title_screen_button_up() -> void:
 func change_visibilty_of_elements():
 	$TextureRect.visible = get_tree().paused
 	$HBoxContainer.visible = get_tree().paused
-	change_mouse_mode()
+	Global.change_mouse_mode()
 	
-func change_mouse_mode():
-	if get_tree().paused:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

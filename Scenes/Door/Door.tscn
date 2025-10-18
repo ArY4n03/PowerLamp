@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c4t8qd6man2wa"]
+[gd_scene load_steps=21 format=4 uid="uid://c4t8qd6man2wa"]
 
 [ext_resource type="Texture2D" uid="uid://db7u6ho7sptt0" path="res://Models/Environment/Textures/wall_lines.png" id="1_icqew"]
 [ext_resource type="Script" uid="uid://dpevb85y5klfh" path="res://Scripts/door.gd" id="1_xtckq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bvvhv5q8bwbxw" path="res://Models/Environment/Textures/doors.png" id="4_8g58p"]
 [ext_resource type="Texture2D" uid="uid://cq86a54cvba2b" path="res://Models/Environment/Textures/roof_plates.png" id="5_mxfjc"]
 [ext_resource type="PackedScene" uid="uid://clr7xvv1qrrxe" path="res://GlobalScenes/TransitionScene/Transition.tscn" id="7_8g58p"]
+[ext_resource type="PackedScene" uid="uid://ruf3svj4si23" path="res://Scenes/Lamp/lamp_text.tscn" id="8_8g58p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vaqe2"]
 resource_name = "wall_lines"
@@ -173,5 +174,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27716827, 2.4017944, -2.93
 shape = SubResource("BoxShape3D_w2t8u")
 
 [node name="Transition" parent="." instance=ExtResource("7_8g58p")]
+
+[node name="LampText" parent="." instance=ExtResource("8_8g58p")]
+visible = false
 
 [connection signal="change_scene" from="Transition" to="." method="change_level"]

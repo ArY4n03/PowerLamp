@@ -1,10 +1,7 @@
-[gd_scene load_steps=57 format=4 uid="uid://cu3f78x816hpf"]
+[gd_scene load_steps=52 format=4 uid="uid://cu3f78x816hpf"]
 
 [ext_resource type="Script" uid="uid://dx1yeexyjcrio" path="res://Scripts/zombie.gd" id="1_lqh64"]
 [ext_resource type="Texture2D" uid="uid://cna1dhtdw5s3n" path="res://Models/CharacterModels/Textures/texture-l.png" id="2_lqh64"]
-[ext_resource type="AudioStream" uid="uid://bqpiwv8wnn77l" path="res://Audio/zapsplat_horror_zombie_monster_or_creature_grunt_groan_001_59566.mp3" id="3_6d0c2"]
-[ext_resource type="AudioStream" uid="uid://btmoessbd60k2" path="res://Audio/zapsplat_horror_zombie_monster_or_creature_grunt_groan_002_59567.mp3" id="4_1g63f"]
-[ext_resource type="AudioStream" uid="uid://dsbco3pvt1ea7" path="res://Audio/zapsplat_horror_male_zombie_monster_or_creature_soft_warning_growl_004_59563.mp3" id="5_4wuls"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gi6q"]
 resource_name = "texture-l"
@@ -1861,37 +1858,27 @@ _data = {
 radius = 0.63378906
 height = 2.808838
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yn7hu"]
-animation = &"die"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqh64"]
 animation = &"idle"
-advance_on_start = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_50pnb"]
 animation = &"walk"
-advance_on_start = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yn7hu"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m155m"]
-xfade_time = 0.2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6d0c2"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1g63f"]
-xfade_time = 0.2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yn7hu"]
-states/die/node = SubResource("AnimationNodeAnimation_yn7hu")
-states/die/position = Vector2(436, 203)
 states/idle/node = SubResource("AnimationNodeAnimation_lqh64")
 states/idle/position = Vector2(334, 100)
 states/walk/node = SubResource("AnimationNodeAnimation_50pnb")
 states/walk/position = Vector2(555, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_yn7hu"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_m155m"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_6d0c2"), "walk", "die", SubResource("AnimationNodeStateMachineTransition_1g63f")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_yn7hu"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_m155m"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_6d0c2")]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lqh64"]
 radius = 8.309395
@@ -1961,18 +1948,4 @@ collision_layer = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.412036, 0)
 shape = SubResource("SphereShape3D_lqh64")
 
-[node name="AudioStreamPlayer1" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_6d0c2")
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_1g63f")
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_4wuls")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
-autostart = true
-
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

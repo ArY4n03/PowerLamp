@@ -1,23 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://lj7nu5s8jqrb"]
+[gd_scene load_steps=4 format=3 uid="uid://lj7nu5s8jqrb"]
 
 [ext_resource type="Script" uid="uid://jsufs3hipf06" path="res://Scripts/level.gd" id="1_sr83s"]
 [ext_resource type="PackedScene" uid="uid://you4c42yiwar" path="res://Scenes/Player/player.tscn" id="2_wdb1f"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6k6w"]
-sky_top_color = Color(0.15545958, 0.1941014, 0.24557608, 1)
-sky_horizon_color = Color(0.41634765, 0.4241205, 0.43967795, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Sky" id="Sky_sr83s"]
-sky_material = SubResource("ProceduralSkyMaterial_o6k6w")
-
-[sub_resource type="Environment" id="Environment_sr83s"]
-background_mode = 1
-sky = SubResource("Sky_sr83s")
-ambient_light_source = 3
-ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.01
-adjustment_enabled = true
+[ext_resource type="PackedScene" uid="uid://bceenft5gykk7" path="res://Scenes/world_environment.tscn" id="3_wdb1f"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_sr83s")
@@ -28,8 +13,7 @@ script = ExtResource("1_sr83s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7754602, 0)
 distance_fade_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_sr83s")
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_wdb1f")]
 
 [node name="Lamps" type="Node" parent="."]
 

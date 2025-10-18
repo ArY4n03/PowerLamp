@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Global="*res://GlobalScripts/Global.gd"
 PauseScreen="*res://GlobalScenes/pause_screen.tscn"
+GameOverScreen="*res://GlobalScenes/GameOverScreen/game_over_screen.tscn"
+AudioPlayer="*res://GlobalScenes/audio_player.tscn"
 
 [display]
 

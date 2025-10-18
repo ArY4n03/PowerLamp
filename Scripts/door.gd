@@ -10,9 +10,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if len($Area3D.get_overlapping_bodies()) > 0 and can_transition:
+		$LampText.show()
 		if Input.is_action_just_pressed("interact"):
 			$Transition.anim.play('transition')
 			can_transition = false
-
+	else:
+		$LampText.hide()
+		
 func change_level():
 	get_tree().change_scene_to_packed(next_level)

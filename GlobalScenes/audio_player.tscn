@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk32mduo8as5a"]
+
+[ext_resource type="AudioStream" uid="uid://uy3xhgaltbf6" path="res://Audio/music_DeepTheme_Audio_stinger_Do_Not_Enter_078.mp3" id="1_60ntl"]
+
+[node name="AudioPlayer" type="Node"]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_60ntl")
+parameters/looping = false

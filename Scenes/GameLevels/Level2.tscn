@@ -17,6 +17,7 @@ albedo_texture = ExtResource("2_qwm0w")
 uv1_triplanar = true
 
 [node name="World" instance=ExtResource("1_kt0ar")]
+cur_level = 2
 
 [node name="Lamp" parent="Lamps" index="0" instance=ExtResource("2_sy1s2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.610203, 1.3330505, 8.809544)
